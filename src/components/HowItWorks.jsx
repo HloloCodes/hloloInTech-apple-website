@@ -1,9 +1,9 @@
 import React, { useRef, useEffect } from 'react';
-import { chipImg, frameImg, frameVideo } from '../utils';
+import { chipImg, frameImg, frameVideo } from '@/utils';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { animateWithGsap } from '../utils/animations';
+import { animateWithGsap } from '@/utils/animations';
 
 gsap.registerPlugin(ScrollTrigger);
 

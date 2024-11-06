@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useLayoutEffect } from 'react';
 import gsap from 'gsap';
-import { heroVideo, smallHeroVideo } from '../utils';
+ // Corrected import path
+import { heroVideo, smallHeroVideo } from '@/utils';
 
 const Hero = () => {
   const [videoSrc, setVideoSrc] = useState(

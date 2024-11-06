@@ -1,5 +1,5 @@
-import { appleImg, searchImg, bagImg } from '../utils';
-import { navLists } from '../constants'; // fixed this error
+import { appleImg, searchImg, bagImg } from '@/utils';
+import { navLists } from '@/constants'; // fixed this error
 
 const Navbar = () => {
   return (

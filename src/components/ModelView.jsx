@@ -1,9 +1,10 @@
 import { Html, OrbitControls, PerspectiveCamera, View } from '@react-three/drei';
 import * as THREE from 'three';
+import gsap from 'gsap'; // Import GSAP for animations
 import Loader from './Loader';
 import Lights from './Lights';
 import IPhone from './IPhone';
-import { Suspense } from 'react';
+import { Suspense, useEffect } from 'react';
 
 const ModelView = ({
   index,
@@ -14,6 +15,19 @@ const ModelView = ({
   size,
   item,
 }) => {
+  // Animation using GSAP to rotate the model continuously
+  useEffect(() => {
+    // Animate the group rotation based on the ref
+    if (groupRef.current) {
+      gsap.to(groupRef.current.rotation, {
+        x: Math.PI * 2,
+        duration: 5,
+        repeat: -1,  // This will repeat the animation infinitely
+        ease: 'linear', // Smooth continuous rotation
+      });
+    }
+  }, [groupRef]);
+
   return (
     <View
       index={index}

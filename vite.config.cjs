@@ -1,8 +1,9 @@
 import tailwindcss from 'tailwindcss';
 import autoprefixer from 'autoprefixer';
+import path from 'path';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import { sentryVitePlugin } from "@sentry/vite-plugin";
+import { sentryVitePlugin } from '@sentry/vite-plugin';
 
 export default defineConfig({
   plugins: [
@@ -14,9 +15,18 @@ export default defineConfig({
     }),
   ],
   build: {
-    sourcemap: true,
+    sourcemap: true, // Ensure sourcemaps are included for debugging
     rollupOptions: {
-      external: ['gsap'], // Ensure any other external modules are also here
+      external: ['gsap'], // Ensure gsap is treated as an external dependency
+      input: {
+        // Add entry point if necessary
+        main: path.resolve(__dirname, 'index.html'),
+      },
+    },
+  },
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src'), // Alias for easier imports
     },
   },
   css: {
@@ -26,5 +36,8 @@ export default defineConfig({
         autoprefixer(),
       ],
     },
+  },
+  server: {
+    open: true, // Automatically open the browser
   },
 });

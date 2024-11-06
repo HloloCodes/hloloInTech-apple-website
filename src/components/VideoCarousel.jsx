@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { hightlightsSlides } from '../constants';
-import { pauseImg, playImg, replayImg } from '../utils';
+import { hightlightsSlides } from '@/constants';
+import { pauseImg, playImg, replayImg } from '@/utils';
 import { gsap } from 'gsap';
 import { useGSAP } from 'gsap';
 

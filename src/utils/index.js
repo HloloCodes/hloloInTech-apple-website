@@ -1,8 +1,5 @@
-import hero from "/Public/public/assets/images/hero.jpeg";
-
-export const heroImg = hero;
-
-import hmv from "/assets/videos/hero.mp4";
+import hero from "/public/assets/images/hero.jpeg"; // Hero image
+import hmv from "/assets/videos/hero.mp4"; // Hero video
 import smallmv from "/assets/videos/smallHero.mp4";
 import highlightFirstmv from "/assets/videos/highlight-first.mp4";
 import highlightSectmv from "/assets/videos/hightlight-third.mp4";
@@ -29,6 +26,8 @@ import explore2 from "/assets/images/explore2.jpg";
 import chip from "/assets/images/chip.jpeg";
 import frame from "/assets/images/frame.png";
 
+// Ensure these are unique and only declared once
+export const heroImg = hero;
 export const heroVideo = hmv;
 export const smallHeroVideo = smallmv;
 export const highlightFirstVideo = highlightFirstmv;

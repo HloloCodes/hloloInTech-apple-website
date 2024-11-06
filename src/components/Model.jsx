@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useGSAP } from "gsap/react";
-import gsap from "gsap";
-import ModelView from "./ModelView3";
-import { yellowImg } from "../utils";
+import gsap from "gsap";  // Only import gsap
+import ModelView from "./ModelView";
+import { yellowImg } from "@/utils";
 import * as THREE from 'three';
+
+
 
 const Model = () => {
   const [size, setSize] = useState('small');
@@ -43,7 +44,8 @@ const Model = () => {
     }
   }, [size]);
 
-  useGSAP(() => {
+  // GSAP animation logic (if needed)
+  useEffect(() => {
     gsap.to('#heading', { y: 0, opacity: 1 });
   }, []);
 
