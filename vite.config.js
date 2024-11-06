@@ -1,7 +1,7 @@
-import tailwindcss from 'tailwindcss';
 import { sentryVitePlugin } from "@sentry/vite-plugin";
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import tailwindcss from 'tailwindcss';  // Static import
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -10,7 +10,7 @@ export default defineConfig({
     sentryVitePlugin({
       org: process.env.VITE_SENTRY_ORG,  // Use environment variables for sensitive info
       project: process.env.VITE_SENTRY_PROJECT,
-      authToken: process.env.VITE_SENTRY_AUTH_TOKEN,
+      authToken: process.env.VITE_SENTRY_AUTH_TOKEN, // Ensure authToken is provided
     }),
   ],
 
@@ -21,9 +21,8 @@ export default defineConfig({
   css: {
     postcss: {
       plugins: [
-        // Add tailwindcss and autoprefixer as PostCSS plugins
-        require('tailwindcss'),
-        require('autoprefixer'),
+        tailwindcss(),  // Add tailwindcss as a PostCSS plugin
+        require('autoprefixer'),  // Add autoprefixer as a PostCSS plugin
       ],
     },
   },
