@@ -16,7 +16,7 @@ export default defineConfig({
   build: {
     sourcemap: true,
     rollupOptions: {
-      external: ['gsap/react'], // Ensure any other external modules are also here
+      external: ['gsap'], // Ensure any other external modules are also here
     },
   },
   css: {
