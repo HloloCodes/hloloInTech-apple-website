@@ -1,15 +1,28 @@
 import { sentryVitePlugin } from "@sentry/vite-plugin";
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), sentryVitePlugin({
-    org: "hlolo-in-tech",
-    project: "javascript-react"
-  })],
+  plugins: [
+    react(),
+    sentryVitePlugin({
+      org: process.env.VITE_SENTRY_ORG,  // Use environment variables for sensitive info
+      project: process.env.VITE_SENTRY_PROJECT,
+    }),
+  ],
 
   build: {
-    sourcemap: true
-  }
-})
+    sourcemap: true,  // Enable sourcemaps for better error tracking
+  },
+
+  css: {
+    postcss: {
+      plugins: [
+        // Add tailwindcss and autoprefixer as PostCSS plugins
+        require('tailwindcss'),
+        require('autoprefixer'),
+      ],
+    },
+  },
+});
