@@ -1,5 +1,3 @@
-import tailwindcss from 'tailwindcss';
-import autoprefixer from 'autoprefixer';  // Import autoprefixer statically
 import { sentryVitePlugin } from "@sentry/vite-plugin";
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
@@ -17,13 +15,19 @@ export default defineConfig({
 
   build: {
     sourcemap: true,  // Enable sourcemaps for better error tracking
+
+    // Add gsap to rollupOptions.external to avoid bundling it
+    rollupOptions: {
+      external: ['gsap'],
+    },
   },
 
   css: {
     postcss: {
       plugins: [
-        tailwindcss,
-        autoprefixer,  // Now using static import
+        // Add tailwindcss and autoprefixer as PostCSS plugins
+        require('tailwindcss'),
+        require('autoprefixer'),
       ],
     },
   },
