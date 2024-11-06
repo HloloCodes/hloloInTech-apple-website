@@ -44,7 +44,7 @@ export const hightlightsSlides = [
     video: highlightFourthVideo,
     videoDuration: 3.63,
   },
-];
+];   
 
 export const models = [
   {
