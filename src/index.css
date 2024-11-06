@@ -111,7 +111,7 @@ canvas {
   }
 
   .hiw-bigtext {
-    @apply text-white-100 text-3xl md:text-5xl font-normal md:font-semibold my-2
+    @apply text-white text-3xl md:text-5xl font-normal md:font-semibold my-2
   }
 
   .video-carousel_container {
