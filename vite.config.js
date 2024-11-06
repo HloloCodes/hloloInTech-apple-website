@@ -1,3 +1,5 @@
+import tailwindcss from 'tailwindcss';
+import autoprefixer from 'autoprefixer';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { sentryVitePlugin } from "@sentry/vite-plugin";
@@ -14,7 +16,15 @@ export default defineConfig({
   build: {
     sourcemap: true,
     rollupOptions: {
-      external: ['gsap/react'], // Exclude gsap
+      external: ['gsap/react'], // Ensure any other external modules are also here
+    },
+  },
+  css: {
+    postcss: {
+      plugins: [
+        tailwindcss(),
+        autoprefixer(),
+      ],
     },
   },
 });
