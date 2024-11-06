@@ -2,6 +2,10 @@ import { sentryVitePlugin } from "@sentry/vite-plugin";
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
+// Static imports for tailwindcss and autoprefixer
+import tailwindcss from 'tailwindcss';
+import autoprefixer from 'autoprefixer';
+
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
@@ -26,8 +30,8 @@ export default defineConfig({
     postcss: {
       plugins: [
         // Add tailwindcss and autoprefixer as PostCSS plugins
-        require('tailwindcss'),
-        require('autoprefixer'),
+        tailwindcss,
+        autoprefixer,
       ],
     },
   },
