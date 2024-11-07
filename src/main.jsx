@@ -7,7 +7,8 @@ import './index.css'; // Import the CSS file with Tailwind's utilities
 
 // Sentry Integration
 import * as Sentry from "@sentry/react";
-import { BrowserTracing } from '@sentry/react';
+import { BrowserTracing } from '@sentry/tracing';
+
 
 // Initialize Sentry with proper configurations
 Sentry.init({
