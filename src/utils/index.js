@@ -1,4 +1,4 @@
-import hero from "/public/assets/images/hero.jpeg"; // Hero image
+import hero from "/assets/images/hero.jpeg"; // Hero image
 import hmv from "/assets/videos/hero.mp4"; // Hero video
 import smallmv from "/assets/videos/smallHero.mp4";
 import highlightFirstmv from "/assets/videos/highlight-first.mp4";

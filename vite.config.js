@@ -38,6 +38,7 @@ export default defineConfig({
         "/assets/images/play.svg",
         "/assets/images/pause.svg",
         
+        "/assets/images/hero.jpeg"
         "/assets/images/yellow.jpg",
         "/assets/images/blue.jpg",
         "/assets/images/white.jpg",
