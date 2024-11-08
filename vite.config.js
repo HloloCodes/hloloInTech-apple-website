@@ -16,10 +16,11 @@ export default defineConfig({
     }),
   ],
   build: {
-    sourcemap: true, // Ensure sourcemaps are included for debugging
+    sourcemap: true, // Ensures sourcemaps are included for debugging
+    chunkSizeWarningLimit: 1000, // Sets warning limit to 1000 KB
     rollupOptions: {
       external: [
-        'gsap', // Ensure gsap is treated as an external dependency 
+        'gsap', // Ensure gsap is treated as an external dependency
         '/assets/videos/hero.mp4',
         '/assets/videos/smallHero.mp4',
         '/assets/videos/highlight-first.mp4',
@@ -28,7 +29,6 @@ export default defineConfig({
         '/assets/videos/hightlight-fourth.mp4',
         '/assets/videos/explore.mp4',
         '/assets/videos/frame.mp4',
-        
         '/assets/images/apple.svg',
         '/assets/images/search.svg',
         '/assets/images/bag.svg',
@@ -37,7 +37,6 @@ export default defineConfig({
         '/assets/images/replay.svg',
         '/assets/images/play.svg',
         '/assets/images/pause.svg',
-        
         '/assets/images/hero.jpeg', // Corrected by adding a comma
         '/assets/images/yellow.jpg',
         '/assets/images/blue.jpg',
@@ -47,10 +46,17 @@ export default defineConfig({
         '/assets/images/explore2.jpg',
         '/assets/images/chip.jpeg',
         '/assets/images/frame.png',
-      ], 
+      ],
       input: {
-        // Add entry point if necessary
-        main: path.resolve(__dirname, 'index.html'),
+        main: path.resolve(__dirname, 'index.html'), // Defines entry point
+      },
+      output: {
+        // Improves chunking by splitting out large dependencies from node_modules
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            return id.toString().split('node_modules/')[1].split('/')[0].toString();
+          }
+        },
       },
     },
   },
@@ -68,7 +74,8 @@ export default defineConfig({
     },
   },
   server: {
-    open: true, // Automatically open the browser
+    open: true, // Automatically opens the browser when the server starts
   },
-  assetsInclude: ['**/*.mp4'], // Ensures .mp4 files are included in the assets
+  assetsInclude: ['**/*.mp4', '**/*.jpg', '**/*.svg'],
+  // Ensures .mp4 files are included in the assets
 });
