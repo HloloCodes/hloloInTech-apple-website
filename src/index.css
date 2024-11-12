@@ -16,7 +16,7 @@ body {
   height: 100%;
   background: #000;
   border-color: #3b3b3b;
-  user-select: none;
+  user-select: none; 
 }
 
 canvas {

@@ -1,26 +1,28 @@
-// vite.config.js
 import tailwindcss from 'tailwindcss';
 import autoprefixer from 'autoprefixer';
 import path from 'path';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import { sentryVitePlugin } from '@sentry/vite-plugin';
+// import { sentryVitePlugin } from '@sentry/vite-plugin'; // Commented out for now
 
 export default defineConfig({
+  base: "./", // Ensures relative paths for assets in production
+
   plugins: [
     react(),
-    sentryVitePlugin({
-      org: process.env.VITE_SENTRY_ORG,
-      project: process.env.VITE_SENTRY_PROJECT,
-      authToken: process.env.VITE_SENTRY_AUTH_TOKEN,
-    }),
+    // Sentry Plugin (commented out for now)
+    // sentryVitePlugin({
+    //   org: process.env.VITE_SENTRY_ORG,
+    //   project: process.env.VITE_SENTRY_PROJECT,
+    //   authToken: process.env.VITE_SENTRY_AUTH_TOKEN,
+    // }),
   ],
   build: {
     sourcemap: true, // Ensures sourcemaps are included for debugging
     chunkSizeWarningLimit: 1000, // Sets warning limit to 1000 KB
     rollupOptions: {
       external: [
-        'gsap', // Ensure gsap is treated as an external dependency
+        //'gsap', // Ensure gsap is treated as an external dependency
         '/assets/videos/hero.mp4',
         '/assets/videos/smallHero.mp4',
         '/assets/videos/highlight-first.mp4',
@@ -37,7 +39,7 @@ export default defineConfig({
         '/assets/images/replay.svg',
         '/assets/images/play.svg',
         '/assets/images/pause.svg',
-        '/assets/images/hero.jpeg', // Corrected by adding a comma
+        '/assets/images/hero.jpeg',
         '/assets/images/yellow.jpg',
         '/assets/images/blue.jpg',
         '/assets/images/white.jpg',
@@ -77,5 +79,5 @@ export default defineConfig({
     open: true, // Automatically opens the browser when the server starts
   },
   assetsInclude: ['**/*.mp4', '**/*.jpg', '**/*.svg'],
-  // Ensures .mp4 files are included in the assets
+  // Ensures .mp4, .jpg, and .svg files are included in the assets
 });
